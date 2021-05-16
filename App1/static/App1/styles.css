@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+    color: #fff;
+}
+.btn{
+    margin-left: 10px;
+}
+.Update_Delete {
+    text-decoration: none;
+    color: #dc3545;
+}
+button a:hover{
+    color: #ffda79;
+}
+.data{
+    font-size: 15px;
+}

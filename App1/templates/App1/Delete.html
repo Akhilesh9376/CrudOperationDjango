@@ -1,0 +1,22 @@
+{% extends 'App1/base.html' %}
+
+{% block title %}Delete-Data{% endblock title %}
+
+{% block content %}
+   <div class="container text-center">
+ <h2 class="text-center alert alert-info">Are You Sure Want To Delete</h2>
+
+<a href="{% url 'Home' %}" class="btn btn-dark btn-outline-success">
+Cancel
+</a>
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Confirm" class="btn btn-dark btn-outline-danger">
+</form>
+
+
+
+</div>
+{% endblock  %}
+
+

@@ -1,0 +1,87 @@
+{% extends 'App1/base.html' %} 
+{% block title %}Home {% endblock %}
+
+ {% block content  %}
+
+
+
+<div class="container mt-5">
+
+  <h2 class="text-center alert alert-info">Crud Operation</h2>
+{% if messages %}
+{% for message in messages %}
+ <h2 class="text-center alert alert-success">{{message}}</h2>
+{% endfor %}
+{% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 ">
+        <h3 class="text-center alert alert-danger">Student Form</h3>
+
+        <form class="form-control" action="" method="post">
+          {% csrf_token %} {{form.as_p}}
+          <input
+            class="btn btn-success"
+            type="submit"
+            value="Submit"
+            value="Add"
+          />
+        </form>
+      </div>
+
+      <div class="col-lg-8 ">
+      
+        <table class="table">
+          <thead class="table-danger">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Update/Delete</th>
+            </tr>
+          </thead>
+          {% for stu in stuInfo %} 
+          <tbody class="table-warning">
+            <tr>
+              <th class="data" scope="row">{{stu.id}}</th>
+              <td class="data">{{stu.name}}</td>
+              <td class="data">{{stu.email}}</td>
+              <td class="data" style="marigin-left: 10px">{{stu.password}}</td>
+              <td>
+                <button
+                  type="button"
+                  class="Update_Delete btn btn-outline-success"
+          
+                >
+                  <a href="{% url 'Update' stu.id %}">
+               <img src="https://img.icons8.com/nolan/64/edit.png" width="26" />
+               <a href="https://icons8.com/icon/56304/edit"></a>
+                  </a>
+                </button>
+                <button
+                  type="button"
+                  class="Update_Delete btn btn-outline-danger"
+                >
+                  <a href="{% url 'Delete' stu.id %}">
+                  
+                   <img src="https://img.icons8.com/cute-clipart/64/000000/delete-forever.png" width="26" />
+
+                   <a href="https://icons8.com/icon/119057/delete-bin"></a>
+
+                  
+                  </a>
+                </button>
+              </td>
+            </tr>
+            <span> </span>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
